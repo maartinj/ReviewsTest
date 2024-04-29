@@ -4,23 +4,24 @@
 //
 //  Created by Marcin Jędrzejak on 29/04/2024.
 //
+// Link: https://www.youtube.com/watch?v=iuZgccibgjE&ab_channel=tundsdev
 
 import SwiftUI
 import StoreKit
 
 struct ContentView: View {
     
+    @EnvironmentObject private var reviewsManager: ReviewsRequestManager
     @Environment(\.requestReview) var requestReview: RequestReviewAction
-    @State private var counter = 0
     
     var body: some View {
         VStack {
-            Text("\(counter)")
+            Text("\(reviewsManager.count)")
                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
             Button {
-                counter += 1
+                reviewsManager.increase()
                 
-                if counter.isMultiple(of: 5) {
+                if reviewsManager.canAskForReview() {
                     requestReview()
                 }
             } label: {
@@ -35,4 +36,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(ReviewsRequestManager())
 }

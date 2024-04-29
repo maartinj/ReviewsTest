@@ -11,6 +11,7 @@
 		E44E54652BDFDF1200F126FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E54642BDFDF1200F126FF /* ContentView.swift */; };
 		E44E54672BDFDF1300F126FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44E54662BDFDF1300F126FF /* Assets.xcassets */; };
 		E44E546B2BDFDF1300F126FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44E546A2BDFDF1300F126FF /* Preview Assets.xcassets */; };
+		E44E54722BDFE8FC00F126FF /* ReviewsRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E54712BDFE8FC00F126FF /* ReviewsRequestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		E44E54662BDFDF1300F126FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44E54682BDFDF1300F126FF /* ReviewsTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReviewsTest.entitlements; sourceTree = "<group>"; };
 		E44E546A2BDFDF1300F126FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E44E54712BDFE8FC00F126FF /* ReviewsRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsRequestManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				E44E54622BDFDF1200F126FF /* ReviewsTestApp.swift */,
 				E44E54642BDFDF1200F126FF /* ContentView.swift */,
+				E44E54712BDFE8FC00F126FF /* ReviewsRequestManager.swift */,
 				E44E54662BDFDF1300F126FF /* Assets.xcassets */,
 				E44E54682BDFDF1300F126FF /* ReviewsTest.entitlements */,
 				E44E54692BDFDF1300F126FF /* Preview Content */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44E54652BDFDF1200F126FF /* ContentView.swift in Sources */,
+				E44E54722BDFE8FC00F126FF /* ReviewsRequestManager.swift in Sources */,
 				E44E54632BDFDF1200F126FF /* ReviewsTestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
