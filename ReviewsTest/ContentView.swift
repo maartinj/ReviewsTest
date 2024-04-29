@@ -6,14 +6,28 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct ContentView: View {
+    
+    @Environment(\.requestReview) var requestReview: RequestReviewAction
+    @State private var counter = 0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(counter)")
+                .font(.system(.largeTitle, design: .rounded, weight: .bold))
+            Button {
+                counter += 1
+                
+                if counter.isMultiple(of: 5) {
+                    requestReview()
+                }
+            } label: {
+                Text("Increase")
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
         }
         .padding()
     }
