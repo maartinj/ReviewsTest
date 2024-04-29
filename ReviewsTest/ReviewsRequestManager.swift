@@ -11,6 +11,7 @@ final class ReviewsRequestManager: ObservableObject {
     
     private let userDefaults: UserDefaults
     private let lastReviewedVersionKey = "mj.ReviewsTest.lastReviewedVersionKey"
+    private (set) var reviewLink = URL(string: "https://apps.apple.com/app/id6444908091?action=write-review")
     
     let limit = 30
     let reviewCountKey = "mj.ReviewsTest.reviewCountKey"
@@ -28,9 +29,7 @@ final class ReviewsRequestManager: ObservableObject {
     ) -> Bool {
         let mostRecentReviewed = lastReviewedVersion ?? userDefaults.string(forKey: lastReviewedVersionKey)
         
-        guard let currentVersion = currentVersion as? String else {
-            fatalError("Expected to find a bundle version in the info dictionary.")
-        }
+        guard let currentVersion = currentVersion else { fatalError("Expected to find a bundle version in the info dictionary.") }
         
         let hasReachedLimit = userDefaults.integer(forKey: reviewCountKey).isMultiple(of: limit)
         let isNewVersion = currentVersion != mostRecentReviewed
