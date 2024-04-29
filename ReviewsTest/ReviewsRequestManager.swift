@@ -9,21 +9,26 @@ import Foundation
 
 final class ReviewsRequestManager: ObservableObject {
     
-    private let userDefaults = UserDefaults.standard
-    private let reviewCountKey = "mj.ReviewsTest.reviewCountKey"
+    private let userDefaults: UserDefaults
     private let lastReviewedVersionKey = "mj.ReviewsTest.lastReviewedVersionKey"
-    private let limit = 30
+    
+    let limit = 30
+    let reviewCountKey = "mj.ReviewsTest.reviewCountKey"
     
     @Published private(set) var count: Int
     
-    init() {
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
         self.count = userDefaults.integer(forKey: reviewCountKey)
     }
     
-    func canAskForReview() -> Bool {
-        let mostRecentReviewed = userDefaults.string(forKey: lastReviewedVersionKey)
+    func canAskForReview(
+        lastReviewedVersion: String? = nil,
+        currentVersion: String? = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    ) -> Bool {
+        let mostRecentReviewed = lastReviewedVersion ?? userDefaults.string(forKey: lastReviewedVersionKey)
         
-        guard let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
+        guard let currentVersion = currentVersion as? String else {
             fatalError("Expected to find a bundle version in the info dictionary.")
         }
         
